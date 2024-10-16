@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Grid,
   Typography,
@@ -30,12 +30,42 @@ import {
   Cell,
 } from "recharts";
 import SourceIcon from "@mui/icons-material/Source";
+import AllUsers from "../form/users/AllUsers"
+import AddNewUser from "..//form/users/AddNewUser";
 import "./Dashboard.css"; // Import the CSS file
+import '../../App.css'
 import { green, purple } from "@mui/material/colors";
+
 // Responsive Grid container style
 const GridContainerStyle = styled(Grid)(({ theme }) => ({
   marginBottom: theme.spacing(3),
 }));
+
+  function App() {
+  const [newUsersCount, setNewUsersCount] = useState(0);
+
+  useEffect(() => {
+    // Fetch all users to get the new users count
+    fetch("https://localhost:7265/api/Dashboard/GetAllUsers")
+      .then((response) => response.json())
+      .then((data) => {
+        const newUsers = data.filter(user => user.isNew).length; // Adjust the filter based on your data structure
+        setNewUsersCount(newUsers);
+      })
+      .catch((error) => console.error("Error fetching users:", error));
+  }, []);
+  return (
+    <div>
+      <Dashboard newUsersCount={newUsersCount} />
+      <AllUsers />
+      <AddNewUser/>
+    </div>
+  );
+}
+
+
+
+
 
 // InfoCard component with hover effect
 const InfoCard = ({ title, value, icon, style }) => (
@@ -83,8 +113,13 @@ const userDistributionData = [
   { name: "Guest Users", value: 300 },
 ];
 
+
 // Dashboard component
-const Dashboard = () => (
+
+
+
+
+const Dashboard =  ({ newUsersCount }) => (
   <>
     <Grid item xs={12} className="infoCardsText">
       <Typography
@@ -121,7 +156,8 @@ const Dashboard = () => (
   <Grid item xs={12} sm={6} md={4} lg={3}>
     <InfoCard
       title="New Users"
-      value="789"
+      // value={newUsersCount}
+      value="10"
       icon={<AccessTime />}
       style={{ backgroundColor: "#284b63", color: "white" }}
     />

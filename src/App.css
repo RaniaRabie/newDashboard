@@ -34,7 +34,7 @@ main {
   position: fixed; /* Make the sidebar fixed */
   top: 0; /* Align to the top */
   left: 0; /* Align to the left */
-  height: 100vh; /* Full height */
+  min-height: 100vh; /* Full height */
   overflow-y: auto; /* Allow scrolling if needed */
   z-index: 1000; /* Ensure it's above other content */
 }
@@ -97,3 +97,5 @@ main {
   padding-left: 20px;
   border-bottom: #fff 0.5px solid;
 }
+
+

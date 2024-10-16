@@ -218,7 +218,12 @@ const FAQ = () => {
 
   return (
     <Box sx={{ width: "100%", maxWidth: 800, margin: "0 auto" }}>
-      <Typography variant="h4" gutterBottom align="center">
+      <Typography
+        variant="h4"
+        gutterBottom
+        align="center"
+        sx={{ fontWeight: "bold", color: "#293241", fontSize: "30px" }}
+      >
         Frequently Asked Questions
       </Typography>
 
@@ -259,16 +264,15 @@ const FAQ = () => {
                   color="success"
                   startIcon={<SaveIcon />}
                   onClick={() => handleSave(index)}
-                  sx={{ mr: 1 }}
+                  sx={{ mr: 1 , color:"#ee6c4d" }}
                 >
                   Save
                 </Button>
                 <Button
                   variant="contained"
-                  color="secondary"
                   startIcon={<CancelIcon />}
                   onClick={handleCancelEdit}
-                  sx={{ mr: 1 }}
+                  sx={{ mr: 1 , color:"#293241" }}
                 >
                   Cancel
                 </Button>
@@ -300,9 +304,22 @@ const FAQ = () => {
             <Box mt={2}>
               <Button
                 variant="contained"
-                color="primary"
                 onClick={handleAddNewQuestion}
-                sx={{ mr: 2, mb: 2 }}
+                sx={{
+                  mr: 2,
+                  mb: 2,
+                  backgroundColor: "#ee6c4d",
+                  fontWeight: "bold",
+                  fontSize: "15px",
+                  textTransform: "capitalize",
+                  letterSpacing: ".5px",
+                  cursor: "pointer",
+                  boxShadow: "0 0 10px rgba(34, 31, 31, 0.3)",
+                  transition: " 0.5s ease",
+                  "&:hover": {
+                    backgroundColor: "#ee6c4d", // Change background color on hover
+                  },
+                }}
               >
                 Add new question
               </Button>
@@ -315,7 +332,7 @@ const FAQ = () => {
                   label="New Question"
                   value={newQuestion}
                   onChange={(e) => setNewQuestion(e.target.value)}
-                  sx={{ mb: 2 }}
+                  sx={{ mb: 2 , }}
                 />
                 <TextField
                   fullWidth
@@ -326,9 +343,10 @@ const FAQ = () => {
                 />
                 <Button
                   variant="contained"
-                  color="success"
                   onClick={handlePublish}
-                  sx={{ mr: 2 }}
+                  sx={{ mr: 2 , backgroundColor:"#293241" , "&:hover": {
+                    backgroundColor: "#293241", // Change background color on hover
+                  },}}
                 >
                   Publish
                 </Button>
@@ -350,7 +368,7 @@ const FAQ = () => {
       </Snackbar>
 
       {/* Confirmation Dialog for deletion */}
-        
+
       <Dialog
         open={dialogOpen}
         onClose={() => setDialogOpen(false)}

@@ -2,7 +2,11 @@
   font-weight: bold;
   margin-bottom: 20px;
   color: #333;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+  align-content: center;
 }
 
 .red-card h6,
@@ -79,6 +83,26 @@
   .dashboard-title {
     font-size: 2rem; /* Medium screens */
   }
+
+  .card {
+    width: 70%; /* Cards take up less space on medium screens */
+    margin: 10px; /* Add some margin between cards */
+  }
+}
+@media (max-width: 1024px) {
+  .dashboard-title {
+    font-size: 2rem; /* Medium screens */
+  }
+
+  .card {
+    width: 90%; /* Cards take up less space on medium screens */
+    margin: 3px; /* Add some margin between cards */
+  }
+  .chart-card{
+    display: flex;
+    direction: row;
+
+  }
 }
 
 @media (max-width: 900px) {
@@ -87,15 +111,31 @@
   }
 
   .card {
-    margin: 10px 0;
+    width: 70%;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    align-content: center; /* Full width for cards on smaller screens */
   }
 
-  .chart-card {
-    margin: 10px 0; /* Adjust chart spacing */
+  .main-container {
+    flex-direction: column; /* Stack items vertically */
+    padding: 0; /* Remove padding */
   }
 }
 
-/* Ensure charts are responsive */
-.chart-card {
-  width: 100%; /* Allow charts to take full width of their container */
+@media (max-width: 600px) {
+  .dashboard-title {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    align-content: center;
+  }
+  .sidebar {
+    min-height: 2000px;
+    max-height: auto;
+  }
+
+  
 }
