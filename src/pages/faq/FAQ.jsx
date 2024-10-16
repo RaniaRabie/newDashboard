@@ -350,7 +350,7 @@ const FAQ = () => {
       </Snackbar>
 
       {/* Confirmation Dialog for deletion */}
-      
+        
       <Dialog
         open={dialogOpen}
         onClose={() => setDialogOpen(false)}
