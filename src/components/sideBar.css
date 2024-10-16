@@ -1,0 +1,23 @@
+/* Drawer animation */
+.MuiDrawer-paper {
+    transition: width 0s ease-in-out;
+
+  }
+
+  /* Submenu animation */
+  .submenu {
+  
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0s ease-in-out;
+  }
+  
+  .submenu.expanded {
+    max-height: 135px; 
+  }
+  
+
+  .subitem-text {
+    font-size: 14px; 
+    color: rgb(70, 70, 70);     
+  }

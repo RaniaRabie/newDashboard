@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import SideBar from "./components/SideBar";
+// import { getDesignTokens } from "./theme";
+import { Outlet } from "react-router-dom";
 
-function App() {
+export default function MiniDrawer() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
+  const [mode, setMode] = React.useState(localStorage.getItem("currentMode") || "light");
+  // const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <SideBar open={open} handleDrawerClose={handleDrawerClose} />
+        <Box sx={{ flexGrow: 1 }}>
+          <Box component="main" sx={{ p: 3 }}>
+            <Outlet />
+          </Box>
+        </Box>
+      </Box>
   );
 }
-
-export default App;
