@@ -3,6 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body{
+  font-family: "Roboto", sans-serif;
+}
 .container {
   display: flex;
   /* position: fixed; */

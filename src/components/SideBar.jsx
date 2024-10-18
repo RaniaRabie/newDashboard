@@ -76,13 +76,8 @@ const routes = [
     icon: <AddRoadIcon />,
     subRoutes: [
       {
-        path: "/manageroadmap",
-        name: "Manage Roadmap ",
-        icon: <EditRoadIcon />,
-      },
-      {
-        path: "/addnewroadmap",
-        name: "Add New Roadmap",
+        path: "/allroadmaps",
+        name: "All Roadmaps",
         icon: <EditRoadIcon />,
       },
     ],
